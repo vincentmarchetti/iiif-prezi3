@@ -117,10 +117,16 @@ class SelectorItem3(Base):
     rotation: Optional[Any] = None
     quality: Optional[Any] = None
     format: Optional[Any] = None
+    
+class SelectorItem4(Base):
+    type: constr(regex=r'^PointSelector$') = 'PointSelector'
+    x : float
+    y : float
+    z : float
 
 
 class Selector(Base):
-    __root__: Union[AnyUrl, SelectorItem, SelectorItem1, SelectorItem2, SelectorItem3]
+    __root__: Union[AnyUrl, SelectorItem, SelectorItem1, SelectorItem2, SelectorItem3, SelectorItem4]
 
 
 class NavPlace(Base):
@@ -473,3 +479,4 @@ ResourceItem.update_forward_refs()
 ServiceItem.update_forward_refs()
 ServiceItem1.update_forward_refs()
 AnnotationCollection.update_forward_refs()
+SelectorItem4.update_forward_refs()
